@@ -1,0 +1,12 @@
+{application, turnusol,
+ [
+  {description, "Turnusol Framework - Extended embedded framework for Raspi"},
+  {vsn, "0.0.1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { turnusol_app, []}},
+  {env, []}
+ ]}.
