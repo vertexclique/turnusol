@@ -2,6 +2,13 @@ PROJECT=turnusol
 EILOC:=$(shell find /usr/local/lib/erlang /usr/lib/erlang -name ei.h -printf '%h\n' 2> /dev/null | head -1)
 LDFLAGS=-Lpriv -L/usr/lib/erlang/usr/lib
 UNAME := $(shell uname)
+CURDIR := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+SHELLARGS=-setcookie TuRnUsOlFrAmE \
+			-pa $(CURDIR)/deps/erlhw/deps/*/ebin \
+			-pa $(CURDIR)/deps/erlhw/ebin \
+			-pa $(CURDIR)/deps/erlhw/examples \
+			-pa $(CURDIR)/deps/sync/ebin \
+			-pa $(CURDIR)/ebin/
 
 all: getdeps makedeps copypriv compile
 
@@ -12,7 +19,7 @@ makedeps:
 	cd deps/erlhw && make && cd ..
 
 copypriv:
-	mkdir priv && cp -R deps/erlhw/priv .
+	cp -R deps/erlhw/priv .
 
 compile:
 	./rebar compile
@@ -23,4 +30,4 @@ clean:
 	rm -rf deps ebin
 
 run:
-	sudo erl -sname turnusol -setcookie TuRnUsOlFrAmE -pz deps/erlhw/deps/*/ebin -pz deps/erlhw/ebin -pz deps/erlhw/examples -pz ebin/
+	sudo erl -sname turnusol $(SHELLARGS) 

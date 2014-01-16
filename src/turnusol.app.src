@@ -1,6 +1,6 @@
 {application, turnusol,
  [
-  {description, "Turnusol Framework - Extended embedded framework for Raspi"},
+  {description, "Turnusol - Easy to use embedded framework"},
   {vsn, "0.0.1"},
   {registered, []},
   {applications, [

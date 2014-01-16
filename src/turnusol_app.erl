@@ -1,4 +1,4 @@
--module(turnusol_app).
+-module (turnusol_app).
 
 -behaviour(application).
 
