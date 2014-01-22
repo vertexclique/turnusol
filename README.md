@@ -39,7 +39,7 @@ Input initialization of pins over turnusol can be:
 
 If you want to initialize the pin as output you can use:
 
-	$> init_output_pin(PinNumber).
+	$> tcore:init_output_pin(PinNumber).
 
 ##### Digital Read / Write
 

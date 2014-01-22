@@ -21,6 +21,8 @@
 -import (gpio, [write/2,
 				read/1]).
 
+% i2c, spi modules, usb?
+
 -import (gpio_sup, [start_link/1]).
 
 -import (sync, [go/0, stop/0]).
