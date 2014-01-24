@@ -1,6 +1,19 @@
 module.exports = function (grunt) {
 
   grunt.initConfig({
+    ftpush: {
+      build: {
+        auth: {
+          host: 'ftp.mahmutbulut.com',
+          port: 21,
+          authKey: 'key'
+        },
+        src: 'dist',
+        dest: 'public_html/turnusol',
+        simple: true,
+        exclusions: ['**.DS_Store']
+      }
+    },
     pages: {
       posts: {
         src: 'posts',
@@ -10,7 +23,7 @@ module.exports = function (grunt) {
         options: {
           pageSrc: 'src/pages',
           data: {
-            baseUrl: '/'
+            baseUrl: '/turnusol/'
           },
           pagination: {
             postsPerPage: 1,
@@ -97,14 +110,24 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('build', [
-    'clean',
-    'pages',
-    'compass',
-    'copy'
-  ]);
+  grunt.registerTask('build', function (target) {
+    if (target === 'deploy') {
+      grunt.config('pages.posts.options.data.baseUrl', '/turnusol/');
+    }
 
-  grunt.registerTask('deploy', ['build', 'gh-pages']);
+    grunt.task.run([
+      'clean',
+      'pages',
+      'compass',
+      'copy'
+    ]);
+  });
+
+  grunt.registerTask('deploy', [
+    'build',
+    'ftpush'
+  ]);
+  //grunt.registerTask('deploy', ['build', 'gh-pages']);
 
   grunt.registerTask('server', [
     'build',

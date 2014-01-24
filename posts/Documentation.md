@@ -4,7 +4,7 @@
   description: "Contains Framework Documentation"
 }
 
-![Turnusol Framework](/images/turnusol.jpg)
+![Turnusol Framework](http://mahmutbulut.com/turnusol/images/turnusol.jpg)
 
 ## Requirements
 
