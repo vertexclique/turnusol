@@ -1,6 +1,10 @@
-![Turnusol Framework](https://raw.github.com/vertexclique/turnusol/gh-pages/images/turnusol.jpg)
+{
+  title: "Turnusol Framework",
+  date:  "2014-01-24",
+  description: "Contains Framework Documentation"
+}
 
-# Turnusol
+![Turnusol Framework](/images/turnusol.jpg)
 
 ## Requirements
 
@@ -8,67 +12,67 @@
 
 You can use the Erlang Solutions repository for installing Erlang. This system tested on erlang-mini that hasn't got additional
 gui dependencies:
-
-	sudo apt-get update
-	sudo apt-get install erlang-mini
-
+```bash
+  sudo apt-get update
+  sudo apt-get install erlang-mini
+```
 ## Installation
 
 For making and preparing shell just type:
-
-	make all
-
+```bash
+  make all
+```
 when you are in the `turnusol` directory.
 After that you can bring the shell with:
-
-	make run
-
-## Usage
+```bash
+  make run
+```
+## Usage
 Through this documentation `$> ` demonstrates Eshell.
 
 ### Drivers
 Turnusol currently have GPIO drivers.
 
-#### GPIO
+#### GPIO
 
 ##### Initialization
 
 Input initialization of pins over turnusol can be:
-
-	$> tcore:init_input_pin(PinNumber).
-
+```erlang
+  $> tcore:init_input_pin(PinNumber).
+```
 If you want to initialize the pin as output you can use:
-
-	$> tcore:init_output_pin(PinNumber).
-
+```erlang
+  $> tcore:init_output_pin(PinNumber).
+```
 ##### Digital Read / Write
 
 Digital write can be used via `tcore`. If you want to write HIGH (1) use:
-
-	$> tcore:write_high(PinNumber).
-
+```erlang
+  $> tcore:write_high(PinNumber).
+```
 If you want to write LOW (0) use:
-
-	$> tcore:write_low(PinNumber).
-
+```erlang
+  $> tcore:write_low(PinNumber).
+```
 Digital read can be used via `tcore`:
-
-	$> tcore:read_pin(PinNumber).
-
+```erlang
+  $> tcore:read_pin(PinNumber).
+```
 ### HCS (Hot Code Swapping / Hot Code Replacement)
 
 #### Starting
 
 Starting the hcs is easy. It is like:
-
-	$> tcore:start_hcs().
-
+```erlang
+  $> tcore:start_hcs().
+```
 #### Stopping
 
 Stopping the hcs is like:
-
-	$> tcore:stop_hcs().
-
+```erlang
+  $> tcore:stop_hcs().
+```
 
 
 # TODO

@@ -1,0 +1,9 @@
+extends base
+
+block head
+  title= example.title
+  if example.description
+    meta(name="description", content="#{example.description}")
+block content
+  mixin example(example)
+  include _social

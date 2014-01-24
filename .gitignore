@@ -1,11 +1,24 @@
-.DS_Store
-._*
-.eunit
-deps
-*.o
-*.beam
-*.plt
-erl_crash.dump
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
-ebin/
-priv/
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+
+.sass-cache
+
+# Cabin-specific ignored files
+dist
+.grunt
+
+# mac spec
+.DS_Store
