@@ -12,6 +12,30 @@ gui dependencies:
 	sudo apt-get update
 	sudo apt-get install erlang-mini
 
+### Elixir
+
+If you want to get elixir interaction
+```bash
+make getelixir
+```
+
+Symlink the core modules like below
+```bash
+sudo ln -s ~/elixir-0.12.2/bin/elixir /usr/local/bin/elixir
+```
+
+```bash
+sudo ln -s ~/elixir-0.12.2/bin/elixirc /usr/local/bin/elixirc
+```
+
+```bash
+sudo ln -s ~/elixir-0.12.2/bin/mix /usr/local/bin/mix
+```
+
+```bash
+sudo ln -s ~/elixir-0.12.2/bin/iex /usr/local/bin/iex
+```
+
 ## Installation
 
 For making and preparing shell just type:
