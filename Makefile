@@ -24,7 +24,7 @@ SHELLARGSEX=--cookie "TuRnUsOlFrAmE" \
 			-pz $(CURDIR)/deps/sync/ebin \
 			-pz $(CURDIR)/ebin/ \
 			-r $(CURDIR)/src/exsbase/tcore.ex \
-			-r $(CURDIR)/src/exsbase/tmware.ex \
+			-r $(CURDIR)/src/exsbase/tmware.ex \
 			-r $(CURDIR)/src/exsbase/tupdate.ex
 
 SHELLARGSEXBEAM=--cookie "TuRnUsOlFrAmE" \
