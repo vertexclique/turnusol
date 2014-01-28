@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+__author__ = 'Mahmut Bulut'
+
+import sys
+arglen = len(sys.argv)
+arglist = str(sys.argv)
