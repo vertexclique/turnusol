@@ -76,9 +76,7 @@ Turnusol currently have GPIO drivers. (also I2C and SPI from erlang-ale but not 
 
 #### GPIO
 
-##### Initialization
-
-###### Erlang
+##### Erlang Initialization
 
 Input initialization of pins over turnusol can be:
 ```erlang
@@ -88,7 +86,7 @@ If you want to initialize the pin as output you can use:
 ```erlang
 $> tcore:init_output_pin(PinNumber).
 ```
-##### Digital Read / Write
+##### Erlang Digital Read / Write
 
 Digital write can be used via `tcore`. If you want to write HIGH (1) use:
 ```erlang
@@ -102,23 +100,8 @@ Digital read can be used via `tcore`:
 ```erlang
 $> tcore:read_pin(PinNumber).
 ```
-### HCS (Hot Code Swapping / Hot Code Replacement)
 
-#### Starting
-
-Starting the hcs is easy. It is like:
-```erlang
-$> tupdate:start_hcs().
-```
-#### Stopping
-
-Stopping the hcs is like:
-```erlang
-$> tupdate:stop_hcs().
-```
-* * *
-
-###### Elixir
+##### Elixir Initialization
 
 Input initialization of pins
 ```elixir
@@ -128,7 +111,7 @@ If you want to initialize the pin as output you can use:
 ```elixir
 $> TCore.init_output_pin pinNumber
 ```
-##### Digital Read / Write
+##### Elixir Digital Read / Write
 
 Digital write can be used via `TCore`. If you want to write HIGH (1) use:
 ```elixir
@@ -142,15 +125,32 @@ Digital read can be used via `TCore`:
 ```elixir
 $> TCore.read_pin pinNumber
 ```
+
 ### HCS (Hot Code Swapping / Hot Code Replacement)
-**currently this is not working because of elixir support is not builded in sync**
-#### Starting
+
+#### Erlang
+##### Starting
+
+Starting the hcs is easy. It is like:
+```erlang
+$> tupdate:start_hcs().
+```
+##### Stopping
+
+Stopping the hcs is like:
+```erlang
+$> tupdate:stop_hcs().
+```
+
+#### Elixir
+_**WARNING: Currently this is not working because of elixir support is not builded in sync**_
+##### Starting
 
 Starting the hcs is easy. It is like:
 ```elixir
 $> TUpdate.start_hcs
 ```
-#### Stopping
+##### Stopping
 
 Stopping the hcs is like:
 ```elixir
