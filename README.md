@@ -8,10 +8,10 @@
 
 You can use the Erlang Solutions repository for installing Erlang. This system tested on erlang-mini that hasn't got additional
 gui dependencies:
-
-	sudo apt-get update
-	sudo apt-get install erlang-mini
-
+```bash
+sudo apt-get update
+sudo apt-get install erlang-mini
+```
 ### Elixir
 
 If you want to get elixir interaction
@@ -19,19 +19,24 @@ If you want to get elixir interaction
 make getelixir
 ```
 
-Symlink the core modules like below
+Symlink the core modules like below (or include in global path)
+
+Elixir executable
 ```bash
 sudo ln -s ~/elixir-0.12.2/bin/elixir /usr/local/bin/elixir
 ```
 
+Elixir compiler
 ```bash
 sudo ln -s ~/elixir-0.12.2/bin/elixirc /usr/local/bin/elixirc
 ```
 
+Mix
 ```bash
 sudo ln -s ~/elixir-0.12.2/bin/mix /usr/local/bin/mix
 ```
 
+Interactive elixir
 ```bash
 sudo ln -s ~/elixir-0.12.2/bin/iex /usr/local/bin/iex
 ```
@@ -39,67 +44,138 @@ sudo ln -s ~/elixir-0.12.2/bin/iex /usr/local/bin/iex
 ## Installation
 
 For making and preparing shell just type:
-
-	make all
-
+```bash
+make all
+```
 when you are in the `turnusol` directory.
-After that you can bring the shell with:
+After that you can bring the shell
 
-	make run
+### for erlang
+```bash
+make run
+```
+### for elixir
+```bash
+make runex
+```
+## Usage
+Through this documentation `$> ` demonstrates Eshell and Iex.
 
-## Usage
-Through this documentation `$> ` demonstrates Eshell.
+### Core functions
+
+#### Erlang
+
+#### Elixir
+Kill the underlying erlang system
+```elixir
+$> TCore.kill_all
+```
 
 ### Drivers
-Turnusol currently have GPIO drivers.
+Turnusol currently have GPIO drivers. (also I2C and SPI from erlang-ale but not implemented deeply yet)
 
-#### GPIO
+#### GPIO
 
 ##### Initialization
 
+###### Erlang
+
 Input initialization of pins over turnusol can be:
-
-	$> tcore:init_input_pin(PinNumber).
-
+```erlang
+$> tcore:init_input_pin(PinNumber).
+```
 If you want to initialize the pin as output you can use:
-
-	$> tcore:init_output_pin(PinNumber).
-
+```erlang
+$> tcore:init_output_pin(PinNumber).
+```
 ##### Digital Read / Write
 
 Digital write can be used via `tcore`. If you want to write HIGH (1) use:
-
-	$> tcore:write_high(PinNumber).
-
+```erlang
+$> tcore:write_high(PinNumber).
+```
 If you want to write LOW (0) use:
-
-	$> tcore:write_low(PinNumber).
-
+```erlang
+$> tcore:write_low(PinNumber).
+```
 Digital read can be used via `tcore`:
-
-	$> tcore:read_pin(PinNumber).
-
+```erlang
+$> tcore:read_pin(PinNumber).
+```
 ### HCS (Hot Code Swapping / Hot Code Replacement)
 
 #### Starting
 
 Starting the hcs is easy. It is like:
-
-	$> tcore:start_hcs().
-
+```erlang
+$> tupdate:start_hcs().
+```
 #### Stopping
 
 Stopping the hcs is like:
+```erlang
+$> tupdate:stop_hcs().
+```
+* * *
 
-	$> tcore:stop_hcs().
+###### Elixir
+
+Input initialization of pins
+```elixir
+$> TCore.init_input_pin pinNumber
+```
+If you want to initialize the pin as output you can use:
+```elixir
+$> TCore.init_output_pin pinNumber
+```
+##### Digital Read / Write
+
+Digital write can be used via `TCore`. If you want to write HIGH (1) use:
+```elixir
+$> TCore.write_high pinNumber
+```
+If you want to write LOW (0) use:
+```elixir
+$> TCore.write_low pinNumber
+```
+Digital read can be used via `TCore`:
+```elixir
+$> TCore.read_pin pinNumber
+```
+### HCS (Hot Code Swapping / Hot Code Replacement)
+**currently this is not working because of elixir support is not builded in sync**
+#### Starting
+
+Starting the hcs is easy. It is like:
+```elixir
+$> TUpdate.start_hcs
+```
+#### Stopping
+
+Stopping the hcs is like:
+```elixir
+$> TUpdate.stop_hcs
+```
 
 
+* * *
 
 # TODO
 
 * zero abstraction with wiringpi
 * pwm and others
-* elixir support
-* start shell through the bash without makefile dependent system (curl ?)
+* elixir support [barely done]
+* start shell through the bash without makefile dependent system (curl ?) [started with python]
 * write / read byte
 * export and unexport
+* http server
+* rest
+* reduce argument count on execution for shell
+
+* * *
+
+* sandboxing (go | c | cpp)
+* mechanism for disallowing tampering
+* mechanism for device auth
+* mechanism for sec boot (not possible for now)
+
