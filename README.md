@@ -1,6 +1,7 @@
 ![Turnusol Framework](https://raw.github.com/vertexclique/turnusol/gh-pages/images/turnusol.jpg)
 
 # Turnusol
+[![Build Status](https://travis-ci.org/vertexclique/turnusol.png?branch=master)](https://travis-ci.org/vertexclique/turnusol)
 
 ## Requirements
 
